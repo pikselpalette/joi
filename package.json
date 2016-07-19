@@ -14,9 +14,9 @@
   },
   "dependencies": {
     "hoek": "^2.2.x",
-    "topo": "1.x.x",
     "isemail": "1.x.x",
-    "moment": "2.x.x"
+    "moment": "^2.14.1",
+    "topo": "1.x.x"
   },
   "devDependencies": {
     "code": "1.x.x",

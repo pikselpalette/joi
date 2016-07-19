@@ -1,13 +1,10 @@
 ![joi Logo](https://raw.github.com/hapijs/joi/master/images/joi.png)
 
-Object schema description language and validator for JavaScript objects.
+Object schema description language and validator for JavaScript objects. 
 
-[![npm version](https://badge.fury.io/js/joi.svg)](http://badge.fury.io/js/joi)
-[![Build Status](https://secure.travis-ci.org/hapijs/joi.svg)](http://travis-ci.org/hapijs/joi)
-[![Dependencies Status](https://david-dm.org/hapijs/joi.svg)](https://david-dm.org/hapijs/joi)
-[![DevDependencies Status](https://david-dm.org/hapijs/joi/dev-status.svg)](https://david-dm.org/hapijs/joi#info=devDependencies)
+This is a fork of version 6.6.1 of [hapijs/joi](https://github.com/hapijs/joi/tree/v6.6.1). The sole purpose for this fork was to allow for stricter string date validation, see [`string.isoDate(format)`](#stringisodate).
 
-Lead Maintainer: [Nicolas Morel](https://github.com/marsup)
+Lead Maintainer: [Richard Merry](https://github.com/rmerry)
 
 ## Table of Contents
 
@@ -109,7 +106,7 @@ Lead Maintainer: [Nicolas Morel](https://github.com/marsup)
       - [`string.lowercase()`](#stringlowercase)
       - [`string.uppercase()`](#stringuppercase)
       - [`string.trim()`](#stringtrim)
-      - [`string.isoDate()`](#stringisodate)
+      - [`string.isoDate(format)`](#stringisodate)
     - [`alternatives`](#alternatives)
       - [`alternatives.try(schemas)`](#alternativestryschemas)
       - [`alternatives.when(ref, options)`](#alternativeswhenref-options)
@@ -1374,9 +1371,10 @@ default), the string will be trimmed.
 var schema = Joi.string().trim();
 ```
 
-#### `string.isoDate()`
+#### `string.isoDate(format)`
 
 Requires the string value to be in valid ISO 8601 date format.
+- `format (OPTIONAL)` - A string format parameter to restrict validation to a given valid ISO format, i.e., `YYYY-MM-DD`.
 
 ```js
 var schema = Joi.string().isoDate();

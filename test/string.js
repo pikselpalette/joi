@@ -2331,7 +2331,60 @@ describe('string', function () {
             done();
         });
 
-        it('validates isoDate', function (done) {
+        it('validates isoDate with a format parameter', function (done) {
+
+            Helper.validate(Joi.string().isoDate('YYYY-MM-DD'), [
+                ['2015-01-31', true],
+                ['2015-02-28', true],
+                ['2015-02-28', true],
+                // Edge cases
+                ['2015-00-00', false],
+                // Leap year
+                ['2015-02-29', false],
+                ['2016-02-29', true],
+                // Other formats
+                ['2013-06-07T14:21:46.295Z', false],
+                ['2013-06-07T14:21:46.295Z0', false],
+                ['2013-06-07T14:21:46.295+07:00', false],
+                ['2013-06-07T14:21:46.295+07:000', false],
+                ['2013-06-07T14:21:46.295-07:00', false],
+                ['2013-06-07T14:21:46Z', false],
+                ['2013-06-07T14:21:46Z0', false],
+                ['2013-06-07T14:21:46+07:00', false],
+                ['2013-06-07T14:21:46+07:000', false],
+                ['2013-06-07T14:21:46-07:00', false],
+                ['2013-06-07T14:21Z', false],
+                ['2013-06-07T14:21+07:00', false],
+                ['2013-06-07T14:21+07:000', false],
+                ['2013-06-07T14:21-07:00', false],
+                ['2013-06-07T14:21Z+7:00', false],
+                ['2013-06-07T', false],
+                ['2013-06-07T14:21', false],
+                ['1-1-2013', false],
+                ['2013-06-07T14.2334,4', false],
+                ['2013-06-07T14,23:34', false],
+                ['2013-06-07T24', false],
+                ['2013-06-07T24:00', false],
+                ['2013-06-07T24:21', false],
+                ['2013-06-07 142146.295', false],
+                ['2013-06-07 146946.295', false],
+                ['2013-06-07 1421,44', false],
+                ['2013-W23', false],
+                ['2013-W23-1', false],
+                ['2013-W2311', false],
+                ['2013-W231', false],
+                ['2013-M231', false],
+                ['2013-W23-1T14:21', false],
+                ['2013-W23-1T14:21:', false],
+                ['2013-W23-1T14:21:46+07:00', false],
+                ['2013-W23-1T14:21:46+07:000', false],
+                ['2013-W23-1T14:21:46-07:00', false],
+                ['2013-184', false],
+                ['2013-1841', false]
+            ], done);
+        });
+
+        it('validates isoDate without a format parameter', function (done) {
 
             Helper.validate(Joi.string().isoDate(), [
                 ['2013-06-07T14:21:46.295Z', true],
