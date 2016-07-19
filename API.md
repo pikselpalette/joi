@@ -105,7 +105,7 @@
     - [`string.lowercase()`](#stringlowercase)
     - [`string.uppercase()`](#stringuppercase)
     - [`string.trim()`](#stringtrim)
-    - [`string.isoDate()`](#stringisodate)
+    - [`string.isoDate(format)`](#stringisodateformat)
   - [`alternatives`](#alternatives)
     - [`alternatives.try(schemas)`](#alternativestryschemas)
     - [`alternatives.when(ref, options)`](#alternativeswhenref-options)
@@ -1402,12 +1402,16 @@ default), the string will be trimmed.
 var schema = Joi.string().trim();
 ```
 
-#### `string.isoDate()`
-
+#### `string.isoDate(format)`
+   
 Requires the string value to be in valid ISO 8601 date format.
+`format` - optional string format parameter to restrict validation to a given valid ISO format, i.e., `YYYY-MM-DD`.
 
 ```js
 var schema = Joi.string().isoDate();
+
+// With optional format parameter
+var schema = Joi.string().isoDate('YYYY-MM-DD');
 ```
 
 ### `alternatives`

@@ -2,14 +2,9 @@
 
 Object schema description language and validator for JavaScript objects.
 
-[![npm version](https://badge.fury.io/js/joi.svg)](http://badge.fury.io/js/joi)
-[![Build Status](https://secure.travis-ci.org/hapijs/joi.svg)](http://travis-ci.org/hapijs/joi)
-[![Dependencies Status](https://david-dm.org/hapijs/joi.svg)](https://david-dm.org/hapijs/joi)
-[![DevDependencies Status](https://david-dm.org/hapijs/joi/dev-status.svg)](https://david-dm.org/hapijs/joi#info=devDependencies)
+This is a fork of version 6.10.1 of [hapijs/joi](https://github.com/hapijs/joi/tree/v6.6.1). The sole purpose for this fork was to allow for stricter string date validation, see [`string.isoDate(format)`](API.md/#stringisodate).
 
-[![Join the chat at https://gitter.im/hapijs/joi](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/hapijs/joi?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-Lead Maintainer: [Nicolas Morel](https://github.com/marsup)
+Lead Maintainer: [Richard Merry](https://github.com/rmerry)
 
 # Example
 
