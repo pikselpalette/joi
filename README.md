@@ -2,7 +2,7 @@
 
 Object schema description language and validator for JavaScript objects. 
 
-This is a fork of version 6.6.1 of [hapijs/joi](https://github.com/hapijs/joi/tree/v6.6.1). The sole purpose for this fork was to allow for stricter string date validation, see [`string.isoDate(format)`](#stringisodate).
+This is a fork of version 6.6.1 of [hapijs/joi](https://github.com/hapijs/joi/tree/v6.6.1). The sole purpose for this fork was to allow for stricter string date validation, see [`string.isoDate(format)`](#stringisodateformat).
 
 Lead Maintainer: [Richard Merry](https://github.com/rmerry)
 
@@ -106,7 +106,7 @@ Lead Maintainer: [Richard Merry](https://github.com/rmerry)
       - [`string.lowercase()`](#stringlowercase)
       - [`string.uppercase()`](#stringuppercase)
       - [`string.trim()`](#stringtrim)
-      - [`string.isoDate(format)`](#stringisodate)
+      - [`string.isoDate(format)`](#stringisodateformat)
     - [`alternatives`](#alternatives)
       - [`alternatives.try(schemas)`](#alternativestryschemas)
       - [`alternatives.when(ref, options)`](#alternativeswhenref-options)
@@ -1374,10 +1374,13 @@ var schema = Joi.string().trim();
 #### `string.isoDate(format)`
 
 Requires the string value to be in valid ISO 8601 date format.
-- `format (OPTIONAL)` - A string format parameter to restrict validation to a given valid ISO format, i.e., `YYYY-MM-DD`.
+- `format` - optional string format parameter to restrict validation to a given valid ISO format, i.e., `YYYY-MM-DD`.
 
 ```js
 var schema = Joi.string().isoDate();
+
+// With optional format parameter
+var schema = Joi.string().isoDate('YYYY-MM-DD');
 ```
 
 ### `alternatives`
